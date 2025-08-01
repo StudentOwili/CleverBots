@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
-import Script from "next/script";
+// Remove Script import as we don't need spa-redirect.js for Vercel
 
 const inter = Inter({
   variable: "--font-sans",
@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any" />
-        <Script src="/spa-redirect.js" strategy="beforeInteractive" />
+        {/* Removed spa-redirect.js script as it's only needed for GitHub Pages */}
       </head>
       <body
         className={`${inter.variable} ${robotoMono.variable} antialiased`}
