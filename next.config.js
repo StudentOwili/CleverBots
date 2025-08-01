@@ -1,4 +1,4 @@
-const repoName = 'LFG';
+const repoName = 'CleverBots';
 
 const nextConfig = {
   reactStrictMode: true,
