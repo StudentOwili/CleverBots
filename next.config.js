@@ -1,5 +1,7 @@
+const isVercel = process.env.VERCEL === '1';
 const repoName = 'CleverBots';
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   images: {
@@ -13,12 +15,14 @@ const nextConfig = {
     ],
   },
   output: 'export',
-
-  // GitHub Pages configuration
-  basePath: `/${repoName}`,
-  assetPrefix: `/${repoName}/`,
-
   trailingSlash: true,
+
+  ...(isVercel
+    ? {} // No basePath or assetPrefix on Vercel
+    : {
+        basePath: `/${repoName}`,
+        assetPrefix: `/${repoName}/`,
+      }),
 
   pageExtensions: ['tsx', 'ts', 'jsx', 'js'].filter(ext => !ext.includes('bak')),
 };
