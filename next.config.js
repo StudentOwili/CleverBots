@@ -1,9 +1,8 @@
-const isVercel = process.env.VERCEL === '1';
-const repoName = 'CleverBots';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export', // Generate static site
+
   images: {
     domains: ['via.placeholder.com'],
     unoptimized: true,
@@ -14,15 +13,8 @@ const nextConfig = {
       },
     ],
   },
-  output: 'export',
-  trailingSlash: true,
 
-  ...(isVercel
-    ? {} // No basePath or assetPrefix on Vercel
-    : {
-        basePath: `/${repoName}`,
-        assetPrefix: `/${repoName}/`,
-      }),
+  trailingSlash: true,
 
   pageExtensions: ['tsx', 'ts', 'jsx', 'js'].filter(ext => !ext.includes('bak')),
 };
