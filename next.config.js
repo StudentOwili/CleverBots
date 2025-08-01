@@ -1,11 +1,7 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export', // Generate static site
-
   images: {
     domains: ['via.placeholder.com'],
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -13,9 +9,15 @@ const nextConfig = {
       },
     ],
   },
-
+  
+  // Remove output: 'export' for Vercel deployment
+  
+  // Remove GitHub Pages configuration
+  // basePath: `/LFG`,
+  // assetPrefix: `/LFG/`,
+  
   trailingSlash: true,
-
+  
   pageExtensions: ['tsx', 'ts', 'jsx', 'js'].filter(ext => !ext.includes('bak')),
 };
 
