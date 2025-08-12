@@ -223,42 +223,52 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-[#0D0D0D] text-white h-screen w-full overflow-y-auto snap-y snap-mandatory">
+    <div className="bg-[#0D0D0D] text-white min-h-screen w-full overflow-y-auto">
       {/* Star background */}
       <StarField starCount={1500} speedFactor={0.03} />
       
       {/* Main content with snap scroll */}
-      <div className="snap-y snap-mandatory h-screen overflow-y-auto" style={{ position: 'relative', zIndex: 10 }}>
+      <div className="relative z-10">
         {/* Section 1: Hero */}
-        <div id="hero-section" ref={section1Ref} className="snap-start h-screen w-full flex flex-col items-center justify-center px-4 py-6 sm:py-0">
+        <div 
+          id="hero-section" 
+          ref={section1Ref} 
+          className="min-h-screen w-full flex flex-col items-center justify-center px-4 py-16 sm:py-0"
+        >
           <div className="max-w-4xl text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8 text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 text-white">
               Free Up Time, Reduce Cost, Scale Faster.
             </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl mb-10 text-[#00FF41]">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 sm:mb-10 text-[#00FF41]">
               Like hiring 4 assistants that work 24/7 for the price of one.
             </p>
             <button 
               onClick={scrollToServices}
-              className="bg-[#00FF41] text-[#0D0D0D] font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-lg sm:text-xl hover:bg-opacity-90 transition-colors duration-300 w-full sm:w-auto">
+              className="bg-[#00FF41] text-[#0D0D0D] font-bold py-4 px-8 rounded-lg text-lg sm:text-xl hover:bg-opacity-90 transition-colors duration-300 w-full sm:w-auto"
+            >
               I want this
             </button>
           </div>
         </div>
         
         {/* Section 2: Services */}
-        <div id="services" ref={section2Ref} className="snap-start h-screen w-full flex flex-col items-center justify-center px-4 py-8 sm:py-0 relative">
-          <div className="max-w-6xl">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-center text-white">
+        <div 
+          id="services" 
+          ref={section2Ref} 
+          className="min-h-screen w-full flex flex-col items-center justify-center px-4 py-16 sm:py-0 relative"
+        >
+          <div className="max-w-6xl w-full">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 text-center text-white">
               We deploy AI that solves:
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* WhatsApp Customer Service */}
               <div className="bg-[#0D0D0D] bg-opacity-80 p-6 sm:p-8 rounded-lg border border-[#00FF41] h-full flex flex-col relative">
                 {/* Best Seller Badge */}
                 <BestSellerBadge />
                 
-                <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-white">WhatsApp Customer Service</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white">WhatsApp Customer Service</h3>
                 <ul className="list-disc list-inside text-base sm:text-lg text-white space-y-3">
                   <li>24/7 automated responses</li>
                   <li>Multilingual and multi-dialect capabilities</li>
@@ -268,17 +278,24 @@ export default function Home() {
                   <li>Schedules appointments and gathers client data</li>
                 </ul>
                 <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 pt-4">
-                  <Link href="/WhatsAppDemo" className="bg-[#1A1A1A] text-[#00FF41] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full sm:w-auto inline-block text-center">
+                  <Link 
+                    href="/WhatsAppDemo" 
+                    className="bg-[#1A1A1A] text-[#00FF41] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
+                  >
                     What this looks like
                   </Link>
-                  <Link href="/WhatsAppTimeline" className="bg-[#00FF41] text-[#0D0D0D] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full sm:w-auto inline-block text-center">
+                  <Link 
+                    href="/WhatsAppTimeline" 
+                    className="bg-[#00FF41] text-[#0D0D0D] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
+                  >
                     How this usually goes
                   </Link>
                 </div>
               </div>
               
+              {/* Custom Website */}
               <div className="bg-[#0D0D0D] bg-opacity-80 p-6 sm:p-8 rounded-lg border border-[#00FF41] h-full flex flex-col">
-                <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-white">Custom Website</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white">Custom Website</h3>
                 <ul className="list-disc list-inside text-base sm:text-lg text-white space-y-3">
                   <li>Responsive design for all devices</li>
                   <li>SEO optimization</li>
@@ -288,17 +305,24 @@ export default function Home() {
                   <li>Analytics and performance tracking</li>
                 </ul>
                 <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 pt-4">
-                  <Link href="/WebsiteDemo" className="bg-[#1A1A1A] text-[#00FF41] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full sm:w-auto inline-block text-center">
+                  <Link 
+                    href="/WebsiteDemo" 
+                    className="bg-[#1A1A1A] text-[#00FF41] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
+                  >
                     What this looks like
                   </Link>
-                  <Link href="/WebsiteTimeline" className="bg-[#00FF41] text-[#0D0D0D] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full sm:w-auto inline-block text-center">
+                  <Link 
+                    href="/WebsiteTimeline" 
+                    className="bg-[#00FF41] text-[#0D0D0D] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
+                  >
                     How this usually goes
                   </Link>
                 </div>
               </div>
               
+              {/* Custom Plan */}
               <div className="bg-[#0D0D0D] bg-opacity-80 p-6 sm:p-8 rounded-lg border border-[#00FF41] h-full flex flex-col">
-                <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-white">Custom Plan</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white">Custom Plan</h3>
                 <p className="text-base sm:text-lg text-white mb-4">
                   We create tailored AI solutions designed specifically for your business needs and challenges.
                 </p>
@@ -310,7 +334,10 @@ export default function Home() {
                   <li>Scalable solutions that grow with you</li>
                 </ul>
                 <div className="flex flex-col sm:flex-row justify-center gap-4 mt-auto pt-4">
-                  <Link href="/CustomPlanTimeline" className="bg-[#00FF41] text-[#0D0D0D] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full inline-block text-center">
+                  <Link 
+                    href="/CustomPlanTimeline" 
+                    className="bg-[#00FF41] text-[#0D0D0D] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
+                  >
                     How this usually goes
                   </Link>
                 </div>
@@ -320,9 +347,13 @@ export default function Home() {
         </div>
         
         {/* Section 3: Why Choose Us */}
-        <div id="why-choose-us" ref={section3Ref} className="snap-start h-screen w-full flex flex-col items-center justify-center px-4 py-6 sm:py-0 relative">
+        <div 
+          id="why-choose-us" 
+          ref={section3Ref} 
+          className="min-h-screen w-full flex flex-col items-center justify-center px-4 py-16 sm:py-0 relative"
+        >
           <div className="max-w-6xl w-full">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-white text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white text-center">
               Why Choose Us
             </h2>
             
@@ -330,10 +361,10 @@ export default function Home() {
               {/* Benefit 1 */}
               <div className="bg-[#0D0D0D] bg-opacity-80 p-6 sm:p-8 rounded-lg border border-[#00FF41] h-full flex flex-col">
                 <div className="flex items-center mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#00FF41] mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#00FF41] mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
-                  <h3 className="text-2xl font-bold text-white">Fast Implementation</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Fast Implementation</h3>
                 </div>
                 <ul className="list-disc list-inside text-base text-white space-y-2 ml-2">
                   <li>Quick integration with existing systems</li>
@@ -345,10 +376,10 @@ export default function Home() {
               {/* Benefit 2 */}
               <div className="bg-[#0D0D0D] bg-opacity-80 p-6 sm:p-8 rounded-lg border border-[#00FF41] h-full flex flex-col">
                 <div className="flex items-center mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#00FF41] mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#00FF41] mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
-                  <h3 className="text-2xl font-bold text-white">Proven Results</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Proven Results</h3>
                 </div>
                 <ul className="list-disc list-inside text-base text-white space-y-2 ml-2">
                   <li>AI WhatsApp integration for Transarabianseas (Saudi Arabia)</li>
@@ -361,10 +392,10 @@ export default function Home() {
               {/* Benefit 3 */}
               <div className="bg-[#0D0D0D] bg-opacity-80 p-6 sm:p-8 rounded-lg border border-[#00FF41] h-full flex flex-col">
                 <div className="flex items-center mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#00FF41] mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#00FF41] mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
-                  <h3 className="text-2xl font-bold text-white">Expert Support</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Expert Support</h3>
                 </div>
                 <ul className="list-disc list-inside text-base text-white space-y-2 ml-2">
                   <li>Dedicated implementation manager</li>
@@ -375,7 +406,7 @@ export default function Home() {
             </div>
             
             {/* Money Back Guarantee */}
-            <div className="bg-[#0D0D0D] bg-opacity-90 p-8 rounded-lg border-2 border-[#00FF41] max-w-4xl mx-auto">
+            <div className="bg-[#0D0D0D] bg-opacity-90 p-6 sm:p-8 rounded-lg border-2 border-[#00FF41] max-w-4xl mx-auto">
               <div className="flex flex-col md:flex-row items-center justify-between">
                 <div className="mb-6 md:mb-0 md:mr-8">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-[#00FF41] mx-auto md:mx-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -383,7 +414,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-[#00FF41] text-center md:text-left">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 text-[#00FF41] text-center md:text-left">
                     30-Day Money Back Guarantee
                   </h3>
                   <p className="text-base sm:text-lg text-white mb-4 text-center md:text-left">
@@ -392,7 +423,8 @@ export default function Home() {
                   <div className="flex justify-center md:justify-start">
                     <button 
                       onClick={scrollToContact}
-                      className="bg-[#00FF41] text-[#0D0D0D] font-bold py-3 px-6 rounded-lg text-lg hover:bg-opacity-90 transition-colors duration-300">
+                      className="bg-[#00FF41] text-[#0D0D0D] font-bold py-3 px-6 rounded-lg text-lg hover:bg-opacity-90 transition-colors duration-300 min-h-[48px]"
+                    >
                       Get Started Risk-Free
                     </button>
                   </div>
@@ -403,9 +435,13 @@ export default function Home() {
         </div>
         
         {/* Section 4: Contact */}
-        <div id="contact-section" ref={section4Ref} className="snap-start h-screen w-full flex flex-col items-center justify-center px-4 py-6 sm:py-0 relative">
+        <div 
+          id="contact-section" 
+          ref={section4Ref} 
+          className="min-h-screen w-full flex flex-col items-center justify-center px-4 py-16 sm:py-0 relative"
+        >
           <div className="max-w-4xl w-full">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white text-center">
               Your business is already smart. It's time for your operations to catch up.
             </h2>
             <div className="mt-8">

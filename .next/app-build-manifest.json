@@ -1,82 +1,20 @@
 {
   "pages": {
-    "/_not-found": [
-      "static/chunks/webpack-bd6f6c74c1e7e1e2.js",
-      "static/chunks/fd9d1056-88acd27bac859e5d.js",
-      "static/chunks/938-52ea0953fba125b1.js",
-      "static/chunks/main-app-ca11a3daab7646cc.js",
-      "static/chunks/app/_not-found-ef9f5383417ee6a1.js"
-    ],
     "/layout": [
-      "static/chunks/webpack-bd6f6c74c1e7e1e2.js",
-      "static/chunks/fd9d1056-88acd27bac859e5d.js",
-      "static/chunks/938-52ea0953fba125b1.js",
-      "static/chunks/main-app-ca11a3daab7646cc.js",
-      "static/css/b0d293e5e3bd2c74.css",
-      "static/chunks/app/layout-cdb1d4152e3c9eea.js"
-    ],
-    "/ProcessTimeline/page": [
-      "static/chunks/webpack-bd6f6c74c1e7e1e2.js",
-      "static/chunks/fd9d1056-88acd27bac859e5d.js",
-      "static/chunks/938-52ea0953fba125b1.js",
-      "static/chunks/main-app-ca11a3daab7646cc.js",
-      "static/chunks/176-301e7617efd97a6f.js",
-      "static/chunks/app/ProcessTimeline/page-db89ee9e6c1539e8.js"
-    ],
-    "/WebsiteTimeline/page": [
-      "static/chunks/webpack-bd6f6c74c1e7e1e2.js",
-      "static/chunks/fd9d1056-88acd27bac859e5d.js",
-      "static/chunks/938-52ea0953fba125b1.js",
-      "static/chunks/main-app-ca11a3daab7646cc.js",
-      "static/chunks/176-301e7617efd97a6f.js",
-      "static/chunks/app/WebsiteTimeline/page-60cc21e521a1e78f.js"
-    ],
-    "/WebsiteDemo/page": [
-      "static/chunks/webpack-bd6f6c74c1e7e1e2.js",
-      "static/chunks/fd9d1056-88acd27bac859e5d.js",
-      "static/chunks/938-52ea0953fba125b1.js",
-      "static/chunks/main-app-ca11a3daab7646cc.js",
-      "static/chunks/176-301e7617efd97a6f.js",
-      "static/chunks/app/WebsiteDemo/page-c961fa024a993622.js"
-    ],
-    "/WhatsAppDemo/page": [
-      "static/chunks/webpack-bd6f6c74c1e7e1e2.js",
-      "static/chunks/fd9d1056-88acd27bac859e5d.js",
-      "static/chunks/938-52ea0953fba125b1.js",
-      "static/chunks/main-app-ca11a3daab7646cc.js",
-      "static/chunks/176-301e7617efd97a6f.js",
-      "static/chunks/app/WhatsAppDemo/page-ae843d1ef3f26fc6.js"
-    ],
-    "/WhatsAppTimeline/page": [
-      "static/chunks/webpack-bd6f6c74c1e7e1e2.js",
-      "static/chunks/fd9d1056-88acd27bac859e5d.js",
-      "static/chunks/938-52ea0953fba125b1.js",
-      "static/chunks/main-app-ca11a3daab7646cc.js",
-      "static/chunks/176-301e7617efd97a6f.js",
-      "static/chunks/app/WhatsAppTimeline/page-9369d934f48a4653.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/page": [
-      "static/chunks/webpack-bd6f6c74c1e7e1e2.js",
-      "static/chunks/fd9d1056-88acd27bac859e5d.js",
-      "static/chunks/938-52ea0953fba125b1.js",
-      "static/chunks/main-app-ca11a3daab7646cc.js",
-      "static/chunks/176-301e7617efd97a6f.js",
-      "static/chunks/app/page-64c6171dda106267.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
     ],
-    "/CustomPlanTimeline/page": [
-      "static/chunks/webpack-bd6f6c74c1e7e1e2.js",
-      "static/chunks/fd9d1056-88acd27bac859e5d.js",
-      "static/chunks/938-52ea0953fba125b1.js",
-      "static/chunks/main-app-ca11a3daab7646cc.js",
-      "static/chunks/176-301e7617efd97a6f.js",
-      "static/chunks/app/CustomPlanTimeline/page-bfd794b4965444f9.js"
-    ],
-    "/AICustomerService/page": [
-      "static/chunks/webpack-bd6f6c74c1e7e1e2.js",
-      "static/chunks/fd9d1056-88acd27bac859e5d.js",
-      "static/chunks/938-52ea0953fba125b1.js",
-      "static/chunks/main-app-ca11a3daab7646cc.js",
-      "static/chunks/app/AICustomerService/page-38bc090faeca6f4d.js"
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js"
     ]
   }
 }

@@ -132,7 +132,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-[#0D0D0D] bg-opacity-80 rounded-xl p-8 shadow-lg border border-[#00FF41]">
+    <div className="max-w-3xl mx-auto bg-[#0D0D0D] bg-opacity-80 rounded-xl p-5 sm:p-8 shadow-lg border border-[#00FF41]">
       {submitStatus === "success" && (
         <div className="mb-6 p-4 bg-[#00FF41] bg-opacity-20 text-white rounded-lg">
           Thank you for your message! We'll get back to you as soon as possible.
@@ -147,40 +147,47 @@ export default function ContactForm() {
       
       <form className="space-y-6" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="email" className="block text-white mb-2">Email</label>
+          <label htmlFor="email" className="block text-white mb-2 text-lg">Email</label>
           <input 
             type="email" 
             id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className={`w-full px-4 py-3 border ${errors.email ? 'border-[#00FF41]' : 'border-[#00FF41]'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF41] bg-[#0D0D0D] text-white`}
+            className={`w-full px-4 py-4 border ${errors.email ? 'border-red-500' : 'border-[#00FF41]'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF41] bg-[#0D0D0D] text-white text-lg`}
             placeholder="Your email"
+            aria-label="Email address"
+            aria-describedby={errors.email ? "email-error" : undefined}
           />
-          {errors.email && <p className="mt-1 text-[#00FF41] text-sm">{errors.email}</p>}
+          {errors.email && (
+            <p id="email-error" className="mt-1 text-[#00FF41] text-sm">{errors.email}</p>
+          )}
         </div>
 
         <div>
-          <label className="block text-white mb-2">What service are you interested in?</label>
-          <div className="grid grid-cols-3 gap-4">
+          <label className="block text-white mb-2 text-lg">What service are you interested in?</label>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <button
               type="button"
               onClick={() => selectTemplate('whatsapp')}
-              className={`px-4 py-2 rounded-lg border ${activeTemplate === 'whatsapp' ? 'bg-[#00FF41] text-[#0D0D0D] border-[#00FF41]' : 'border-[#00FF41] text-white hover:bg-[#00FF41] hover:bg-opacity-20'} transition`}
+              className={`px-4 py-4 rounded-lg border ${activeTemplate === 'whatsapp' ? 'bg-[#00FF41] text-[#0D0D0D] border-[#00FF41]' : 'border-[#00FF41] text-white hover:bg-[#00FF41] hover:bg-opacity-20'} transition text-lg`}
+              aria-pressed={activeTemplate === 'whatsapp'}
             >
               WhatsApp Agent
             </button>
             <button
               type="button"
               onClick={() => selectTemplate('website')}
-              className={`px-4 py-2 rounded-lg border ${activeTemplate === 'website' ? 'bg-[#00FF41] text-[#0D0D0D] border-[#00FF41]' : 'border-[#00FF41] text-white hover:bg-[#00FF41] hover:bg-opacity-20'} transition`}
+              className={`px-4 py-4 rounded-lg border ${activeTemplate === 'website' ? 'bg-[#00FF41] text-[#0D0D0D] border-[#00FF41]' : 'border-[#00FF41] text-white hover:bg-[#00FF41] hover:bg-opacity-20'} transition text-lg`}
+              aria-pressed={activeTemplate === 'website'}
             >
               Website
             </button>
             <button
               type="button"
               onClick={() => selectTemplate('custom')}
-              className={`px-4 py-2 rounded-lg border ${activeTemplate === 'custom' ? 'bg-[#00FF41] text-[#0D0D0D] border-[#00FF41]' : 'border-[#00FF41] text-white hover:bg-[#00FF41] hover:bg-opacity-20'} transition`}
+              className={`px-4 py-4 rounded-lg border ${activeTemplate === 'custom' ? 'bg-[#00FF41] text-[#0D0D0D] border-[#00FF41]' : 'border-[#00FF41] text-white hover:bg-[#00FF41] hover:bg-opacity-20'} transition text-lg`}
+              aria-pressed={activeTemplate === 'custom'}
             >
               Custom AI
             </button>
@@ -188,22 +195,27 @@ export default function ContactForm() {
         </div>
         
         <div>
-          <label htmlFor="message" className="block text-white mb-2">Message</label>
+          <label htmlFor="message" className="block text-white mb-2 text-lg">Message</label>
           <textarea 
             id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
             rows={5}
-            className={`w-full px-4 py-3 border ${errors.message ? 'border-[#00FF41]' : 'border-[#00FF41]'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF41] bg-[#0D0D0D] text-white`}
+            className={`w-full px-4 py-4 border ${errors.message ? 'border-red-500' : 'border-[#00FF41]'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF41] bg-[#0D0D0D] text-white text-lg`}
             placeholder="Your message"
+            aria-label="Message"
+            aria-describedby={errors.message ? "message-error" : undefined}
           ></textarea>
-          {errors.message && <p className="mt-1 text-[#00FF41] text-sm">{errors.message}</p>}
+          {errors.message && (
+            <p id="message-error" className="mt-1 text-[#00FF41] text-sm">{errors.message}</p>
+          )}
         </div>
         <button 
           type="submit" 
-          className="w-full px-6 py-3 bg-[#00FF41] hover:bg-opacity-90 text-[#0D0D0D] font-medium rounded-lg transition disabled:opacity-70 disabled:cursor-not-allowed"
+          className="w-full px-6 py-4 bg-[#00FF41] hover:bg-opacity-90 text-[#0D0D0D] font-medium rounded-lg transition disabled:opacity-70 disabled:cursor-not-allowed text-lg"
           disabled={isSubmitting}
+          aria-busy={isSubmitting}
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>

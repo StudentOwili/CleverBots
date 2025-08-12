@@ -1,11 +1,3 @@
 {
-  "/_not-found": "app/_not-found.js",
-  "/ProcessTimeline/page": "app/ProcessTimeline/page.js",
-  "/WebsiteTimeline/page": "app/WebsiteTimeline/page.js",
-  "/WebsiteDemo/page": "app/WebsiteDemo/page.js",
-  "/WhatsAppDemo/page": "app/WhatsAppDemo/page.js",
-  "/WhatsAppTimeline/page": "app/WhatsAppTimeline/page.js",
-  "/page": "app/page.js",
-  "/CustomPlanTimeline/page": "app/CustomPlanTimeline/page.js",
-  "/AICustomerService/page": "app/AICustomerService/page.js"
+  "/page": "app/page.js"
 }
