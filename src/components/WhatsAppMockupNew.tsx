@@ -20,7 +20,7 @@ interface WhatsAppMockupProps {
 }
 
 export default function WhatsAppMockupNew({
-  initialMessage = "👋 Hey there! This is our AI WhatsApp customer service demo. How can I assist you today?",
+  initialMessage = "👋 Hey there! This is how the automation will look like. You can try me here before you get the real thing.",
   systemPrompt = "You are a helpful customer service AI assistant for a business. Respond in a friendly, professional manner. Keep responses concise and helpful, typical of WhatsApp business messages (short and to the point). You should act like a WhatsApp business assistant for a company called 'LFG Tech'. If asked about pricing, mention that the WhatsApp AI service starts at $299/month and custom solutions are tailored to business needs. If asked about products, mention AI solutions for WhatsApp, websites, and custom business automations."
 }: WhatsAppMockupProps) {
   const [messages, setMessages] = useState<Message[]>([]);

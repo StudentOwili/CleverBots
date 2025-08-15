@@ -1,0 +1,76 @@
+{
+    "name": "WhatsApp Mockup Stateful Bot",
+    "nodes": [
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "whatsapp-mockup"
+        },
+        "name": "Webhook Trigger",
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 1,
+        "position": [250, 300]
+      },
+      {
+        "parameters": {
+          "functionCode": "const sessionId = $json.sessionId;\nconst latestMessage = $json.latestMessage;\n\nif (!sessionId) {\n  throw new Error('No sessionId provided in request body.');\n}\n\nconst data = this.getWorkflowStaticData('global');\n\n// Default phase\nlet phase = 1;\n\n// If session exists, move to persuasion phase\nif (data[sessionId]) {\n  phase = 2;\n} else {\n  data[sessionId] = { phase: 1 };\n}\n\nreturn [{ json: { sessionId, phase, latestMessage } }];"
+        },
+        "name": "Session & Phase Manager",
+        "type": "n8n-nodes-base.function",
+        "typeVersion": 1,
+        "position": [500, 300]
+      },
+      {
+        "parameters": {
+          "model": "gpt-4o-mini",
+          "prompt": "You are a WhatsApp automation demo bot.\nIf phase = 1: give a short, impressive reply that demonstrates instant capability to answer a customer.\nIf phase = 2: give a short reply that subtly persuades the user to consider using this automation for their business.\n\nPhase: {{$json.phase}}\nLatest user message: {{$json.latestMessage}}\n\nYour reply should be one short sentence."
+        },
+        "name": "OpenRouter - Generate Response",
+        "type": "n8n-nodes-base.openRouter",
+        "typeVersion": 1,
+        "position": [750, 300]
+      },
+      {
+        "parameters": {
+          "model": "gpt-4o-mini",
+          "prompt": "Review the following reply for the following rules:\n- No emojis\n- Keep it under 200 characters\n- Maintain a professional, persuasive tone\n- Avoid overly flamboyant or casual expressions\nRewrite if necessary.\n\nReply: {{$json.text}}"
+        },
+        "name": "OpenRouter - Agent Review",
+        "type": "n8n-nodes-base.openRouter",
+        "typeVersion": 1,
+        "position": [1000, 300]
+      },
+      {
+        "parameters": {
+          "respondWith": "lastNode"
+        },
+        "name": "Webhook Response",
+        "type": "n8n-nodes-base.webhookResponse",
+        "typeVersion": 1,
+        "position": [1250, 300]
+      }
+    ],
+    "connections": {
+      "Webhook Trigger": {
+        "main": [
+          [{ "node": "Session & Phase Manager", "type": "main", "index": 0 }]
+        ]
+      },
+      "Session & Phase Manager": {
+        "main": [
+          [{ "node": "OpenRouter - Generate Response", "type": "main", "index": 0 }]
+        ]
+      },
+      "OpenRouter - Generate Response": {
+        "main": [
+          [{ "node": "OpenRouter - Agent Review", "type": "main", "index": 0 }]
+        ]
+      },
+      "OpenRouter - Agent Review": {
+        "main": [
+          [{ "node": "Webhook Response", "type": "main", "index": 0 }]
+        ]
+      }
+    }
+  }
+  

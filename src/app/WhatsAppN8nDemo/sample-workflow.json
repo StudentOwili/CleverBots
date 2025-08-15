@@ -1,0 +1,247 @@
+{
+  "name": "WhatsApp AI Assistant with Session Management",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "whatsapp-ai",
+        "options": {}
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Extract data from webhook\nconst { sessionId, systemPrompt, messages, userMessage } = $input.item.json;\n\n// Log the session ID for debugging\nconsole.log(`Processing request for session: ${sessionId}`);\n\n// Format messages for OpenAI\nconst formattedMessages = [\n  { role: 'system', content: systemPrompt },\n  ...messages,\n  { role: 'user', content: userMessage }\n];\n\nreturn {\n  json: {\n    sessionId,\n    formattedMessages,\n    rawInput: $input.item.json\n  }\n};"
+      },
+      "name": "Process Request",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        450,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.sessionId }}",
+              "operation": "exists"
+            }
+          ]
+        }
+      },
+      "name": "Check Session",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        650,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Here you could fetch previous conversation context from a database\n// based on the session ID\n\nconst { sessionId, formattedMessages } = $input.item.json;\n\n// For demo purposes, we'll just log that we would fetch data\nconsole.log(`Would fetch data for existing session: ${sessionId}`);\n\n// In a real implementation, you might add context from a database\n// const contextFromDb = await fetchContextFromDb(sessionId);\n// formattedMessages.unshift({ role: 'system', content: contextFromDb });\n\nreturn {\n  json: {\n    sessionId,\n    formattedMessages,\n    isExistingSession: true\n  }\n};"
+      },
+      "name": "Handle Existing Session",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        850,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Initialize a new session\n\nconst { sessionId, formattedMessages } = $input.item.json;\n\nconsole.log(`Initializing new session: ${sessionId}`);\n\n// In a real implementation, you might create a new record in a database\n// await createNewSessionInDb(sessionId);\n\nreturn {\n  json: {\n    sessionId,\n    formattedMessages,\n    isExistingSession: false\n  }\n};"
+      },
+      "name": "Initialize New Session",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        850,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "method": "POST",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "gpt-4o"
+            },
+            {
+              "name": "messages",
+              "value": "={{ $json.formattedMessages }}"
+            },
+            {
+              "name": "temperature",
+              "value": 0.7
+            }
+          ]
+        },
+        "options": {
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "name": "OpenAI API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1050,
+        300
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "1",
+          "name": "OpenAI API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "functionCode": "// Extract AI response from OpenAI API\nconst aiResponse = $input.item.json.choices[0].message.content;\nconst { sessionId } = $input.item.json;\n\n// In a real implementation, you might save the response to a database\n// await saveResponseToDb(sessionId, aiResponse);\n\n// Return formatted response for WhatsApp UI\nreturn {\n  json: {\n    aiMessage: aiResponse,\n    sessionId\n  }\n};"
+      },
+      "name": "Format Response",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        1250,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        1450,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Process Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Request": {
+      "main": [
+        [
+          {
+            "node": "Check Session",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Session": {
+      "main": [
+        [
+          {
+            "node": "Handle Existing Session",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Initialize New Session",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Handle Existing Session": {
+      "main": [
+        [
+          {
+            "node": "OpenAI API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Initialize New Session": {
+      "main": [
+        [
+          {
+            "node": "OpenAI API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI API": {
+      "main": [
+        [
+          {
+            "node": "Format Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Response": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {},
+  "version": 1,
+  "meta": {
+    "instanceId": "EXAMPLE-INSTANCE-ID"
+  },
+  "tags": [
+    {
+      "name": "WhatsApp",
+      "color": "#00FF41"
+    },
+    {
+      "name": "AI",
+      "color": "#00FF41"
+    },
+    {
+      "name": "Session Management",
+      "color": "#00FF41"
+    }
+  ]
+} 

@@ -279,7 +279,7 @@ export default function Home() {
                 </ul>
                 <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 pt-4">
                   <Link 
-                    href="/WhatsAppDemo" 
+                    href="/WhatsAppN8nDemo" 
                     className="bg-[#1A1A1A] text-[#00FF41] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
                   >
                     What this looks like
