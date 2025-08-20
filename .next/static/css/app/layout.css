@@ -764,9 +764,6 @@ video {
 .z-50 {
   z-index: 50;
 }
-.z-\[100\] {
-  z-index: 100;
-}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -937,9 +934,6 @@ video {
 .min-h-\[48px\] {
   min-height: 48px;
 }
-.min-h-\[60px\] {
-  min-height: 60px;
-}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1078,10 +1072,6 @@ video {
   --tw-translate-y: 1rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.translate-x-full {
-  --tw-translate-x: 100%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
 .scale-100 {
   --tw-scale-x: 1;
   --tw-scale-y: 1;
@@ -1148,19 +1138,6 @@ video {
 .animate-fade-in-up {
   animation: fadeInUp 0.5s ease-in-out;
 }
-@keyframes fadeIn {
-
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-.animate-fadeIn {
-  animation: fadeIn 0.5s ease-in-out;
-}
 @keyframes pingSlow {
 
   0% {
@@ -1190,21 +1167,6 @@ video {
 }
 .animate-pulse-subtle {
   animation: pulseSoft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-@keyframes scaleIn {
-
-  0% {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-.animate-scaleIn {
-  animation: scaleIn 0.5s ease-out;
 }
 @keyframes spin {
 
@@ -1297,11 +1259,6 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
-}
-.space-y-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -1487,9 +1444,6 @@ video {
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
-}
-.bg-opacity-70 {
-  --tw-bg-opacity: 0.7;
 }
 .bg-opacity-80 {
   --tw-bg-opacity: 0.8;
@@ -1776,11 +1730,6 @@ video {
 .shadow-2xl {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_0_20px_rgba\(0\2c 255\2c 65\2c 0\.5\)\] {
-  --tw-shadow: 0 0 20px rgba(0,255,65,0.5);
-  --tw-shadow-colored: 0 0 20px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .shadow-glow {
