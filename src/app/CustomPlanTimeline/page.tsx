@@ -190,7 +190,7 @@ export default function CustomPlanTimeline() {
     },
     {
       title: "Proposal & Agreement",
-      description: "We'll create a detailed proposal outlining the custom AI solution, including scope, timeline, and pricing. After your approval, you'll pay a fixed $100 downpayment to begin the development process."
+      description: "We'll create a detailed proposal outlining the custom AI solution, including scope, timeline, and pricing. After your approval, you'll pay a fixed $243 downpayment to begin the development process."
     },
     {
       title: "Data Collection",

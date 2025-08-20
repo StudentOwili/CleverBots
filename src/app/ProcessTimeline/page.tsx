@@ -190,7 +190,7 @@ export default function ProcessTimeline() {
     },
     {
       title: "Project Kickoff",
-      description: "If we're good, you'll pay us a downpayment of a fixed 100$ of any service you choose, and we start working right away. This commitment allows us to begin the development process immediately."
+      description: "If we're good, you'll pay us a downpayment of a fixed 243$ of any service you choose, and we start working right away. This commitment allows us to begin the development process immediately."
     },
     {
       title: "Development Process",

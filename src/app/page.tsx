@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ContactForm from '@/components/ContactForm';
 import Link from 'next/link';
+import ProfessorGreeting from '@/components/ProfessorGreeting';
 
 // Color palette
 // - 00FF41 (lime green)
@@ -224,6 +225,9 @@ export default function Home() {
 
   return (
     <div className="bg-[#0D0D0D] text-white min-h-screen w-full overflow-y-auto">
+      {/* Professor Greeting Popup */}
+      <ProfessorGreeting />
+      
       {/* Star background */}
       <StarField starCount={1500} speedFactor={0.03} />
       
@@ -279,14 +283,14 @@ export default function Home() {
                 </ul>
                 <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 pt-4">
                   <Link 
-                    href="/WhatsAppN8nDemo" 
-                    className="bg-[#1A1A1A] text-[#00FF41] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
+                    href="/WhatsAppMockup" 
+                    className="bg-[#00FF41] text-[#0D0D0D] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
                   >
                     What this looks like
                   </Link>
                   <Link 
                     href="/WhatsAppTimeline" 
-                    className="bg-[#00FF41] text-[#0D0D0D] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
+                    className="bg-[#1A1A1A] text-[#00FF41] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
                   >
                     How this usually goes
                   </Link>
@@ -307,13 +311,13 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 pt-4">
                   <Link 
                     href="/WebsiteDemo" 
-                    className="bg-[#1A1A1A] text-[#00FF41] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
+                    className="bg-[#00FF41] text-[#0D0D0D] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
                   >
                     What this looks like
                   </Link>
                   <Link 
                     href="/WebsiteTimeline" 
-                    className="bg-[#00FF41] text-[#0D0D0D] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
+                    className="bg-[#1A1A1A] text-[#00FF41] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
                   >
                     How this usually goes
                   </Link>
@@ -336,7 +340,7 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row justify-center gap-4 mt-auto pt-4">
                   <Link 
                     href="/CustomPlanTimeline" 
-                    className="bg-[#00FF41] text-[#0D0D0D] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
+                    className="bg-[#1A1A1A] text-[#00FF41] font-bold py-3 px-5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 w-full text-center flex items-center justify-center min-h-[48px]"
                   >
                     How this usually goes
                   </Link>

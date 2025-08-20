@@ -14,7 +14,7 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LFG.tech | AI Automation Agency",
+  title: "Fantasticoders",
   description: "Free up time, reduce cost, and scale faster with our AI automation solutions for forward-thinking businesses.",
   keywords: ["AI automation", "business automation", "AI solutions", "workflow automation", "customer support AI", "data processing"],
   authors: [{ name: "LFG.tech" }],

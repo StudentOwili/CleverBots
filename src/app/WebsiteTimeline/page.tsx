@@ -190,7 +190,7 @@ export default function WebsiteTimeline() {
     },
     {
       title: "Project Kickoff",
-      description: "After confirming the project scope, you'll pay a fixed $100 downpayment to begin the website development process. We'll create a detailed project timeline with key milestones and deliverables."
+      description: "After confirming the project scope, you'll pay a fixed $243 downpayment to begin the website development process. We'll create a detailed project timeline with key milestones and deliverables."
     },
     {
       title: "Design & Development",

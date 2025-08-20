@@ -190,7 +190,7 @@ export default function WhatsAppTimeline() {
     },
     {
       title: "Project Kickoff",
-      description: "After confirming compatibility, you'll pay a fixed $100 downpayment to begin the WhatsApp AI development process. We'll create a project plan with clear milestones for your WhatsApp automation solution."
+      description: "After confirming compatibility, you'll pay a fixed $243 downpayment to begin the WhatsApp AI development process. We'll create a project plan with clear milestones for your WhatsApp automation solution."
     },
     {
       title: "Development & Training",
