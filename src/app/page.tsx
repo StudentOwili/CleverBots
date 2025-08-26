@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ContactForm from '@/components/ContactForm';
 import Link from 'next/link';
+import ProfessorGreeting from '@/components/ProfessorGreeting';
 
 // Color palette
 // - 00FF41 (lime green)
@@ -224,6 +225,9 @@ export default function Home() {
 
   return (
     <div className="bg-[#0D0D0D] text-white min-h-screen w-full overflow-y-auto">
+      {/* Professor Greeting Popup */}
+      <ProfessorGreeting />
+      
       {/* Star background */}
       <StarField starCount={1500} speedFactor={0.03} />
       

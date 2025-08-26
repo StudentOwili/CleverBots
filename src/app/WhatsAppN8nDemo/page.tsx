@@ -187,7 +187,7 @@ export default function WhatsAppN8nDemo() {
           <div className="w-full md:w-1/2 flex justify-center items-center">
             <WhatsAppMockupN8n 
               initialMessage="👋 Hey there! This is how the automation will look like. You can try me here before you get the real thing."
-              webhookUrl="https://tekoteko124.app.n8n.cloud/webhook/333352e9-d18f-4389-a937-1b0b0c178273"
+              webhookUrl="https://tekoteko125.app.n8n.cloud/webhook/333352e9-d18f-4389-a937-1b0b0c178273"
               systemPrompt=""
             />
           </div>
