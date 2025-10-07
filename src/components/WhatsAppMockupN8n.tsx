@@ -23,7 +23,7 @@ const generateSessionId = (): string => {
 
 export default function WhatsAppMockupN8n({
   initialMessage = "👋 Hey there! This is how the automation will look like. You can try me here before you get the real thing.",
-  webhookUrl = "https://tekoteko125.app.n8n.cloud/webhook/333352e9-d18f-4389-a937-1b0b0c178273",
+  webhookUrl = "https://tekoteko127.app.n8n.cloud/webhook/333352e9-d18f-4389-a937-1b0b0c178273",
   systemPrompt = "",
   businessName = "Your Business"
 }: WhatsAppMockupProps) {
